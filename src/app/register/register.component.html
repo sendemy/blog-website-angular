@@ -1,0 +1,24 @@
+<div class="register-container">
+	<div class="register-left">
+		<h2>Register! 👋</h2>
+		<form (submit)="onSubmit($event)">
+			<label for="nickname">Nickname</label>
+			<input type="nickname" id="nickname" name="nickname" [formControl]="nickname">
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="email@email.com" [formControl]="email">
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" [formControl]="password">
+			<label for="password-repeat">Repeat pasword</label>
+			<input type="password" id="password-repeat" name="password-repeat" [formControl]="passwordRepeat">
+			<button type="submit" class="button button-signin">Sign In</button>
+		</form>
+		<p>Already have an account? <a routerLink="/login">Sign In Now</a></p>
+	</div>
+	<div class="register-right">
+		<div class="register-info">
+			<h3>Why should I sign up?</h3>
+			<p>By signing up, you can access your personal dashboard, where you can manage your account, view your
+				profile, and much more.</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<header class="header">
+	<div class="header__logo">VK</div>
+	<nav class="header__nav">
+		<div class="nav__list">
+			<a routerLink='./home'>Home</a>
+			<a *ngIf="user?.role === 'admin'" routerLink='./create-post'>Create Post</a>
+		</div>
+	</nav>
+	<div class="header__profile">
+		<span class="profile__name">
+			<a [routerLink]="['/users', user?.id]">{{ nicknameToShow }}</a>
+		</span>
+	</div>
+</header>

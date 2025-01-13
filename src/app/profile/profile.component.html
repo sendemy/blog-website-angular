@@ -1,0 +1,56 @@
+<div class="user-profile">
+	<!-- User Information Section -->
+	<div class="user-info">
+		<div>
+			<h1 class="user-name">{{ nicknameToDisplay }}</h1>
+			<p class="user-email">{{ currentUserProfile?.email }}</p>
+		</div>
+		<div *ngIf='ownsAccount'>
+			<button type="button" class='button' (click)='handleLogOut()'>Log out</button>
+		</div>
+	</div>
+
+	<!-- Change Options Section -->
+	<div *ngIf='ownsAccount' class="user-options">
+		<h2>Account</h2>
+		<button class="button" (click)="isNicknameChanging = !isNicknameChanging">{{ isNicknameChanging ? 'Close'
+			: 'Change Nickname'
+			}}</button>
+		<form class='change-form change-nickname' (submit)="handleChangeNickname($event)" *ngIf="isNicknameChanging">
+			<label>
+				<span>Enter new nickname:</span>
+				<input type="text" [formControl]='changedNickname'>
+			</label>
+			<button class='button'>Change</button>
+		</form>
+		<button class="button" (click)="isPasswordChanging = !isPasswordChanging">{{ isPasswordChanging ? 'Close'
+			: 'Change Password'
+			}}</button>
+		<form class='change-form change-password' (submit)="handleChangePassword($event)" *ngIf="isPasswordChanging">
+			<label>
+				<span>Enter new password:</span>
+				<input type="password" [formControl]='changedPassword'>
+			</label>
+			<label>
+				<span>Repeat new password:</span>
+				<input type="password" [formControl]='changedPasswordRepeated'>
+			</label>
+			<button type="submit" class='button'>Change</button>
+		</form>
+		<button class="button" (click)="handleDeleteAccount()">Delete account</button>
+	</div>
+
+	<!-- User Posts Section -->
+	<div class="user-posts">
+		<h2>{{ ownsAccount ? 'Your Posts' : (currentUserProfile?.nickname + '\'s posts') }}</h2>
+		<div class="post" *ngFor="let post of userPostsToShow" (click)='handlePostRedirect(post.id)'>
+			<img [src]="post.previewImage" alt="Post Image" class="post-image" />
+			<div class='post-text'>
+				<h3 class="post-title">{{ post.title }}</h3>
+				<p class="post-content">{{ post.content }}</p>
+			</div>
+		</div>
+		<div *ngIf="!userPostsToShow.length">No posts here yet.</div>
+		<button type="button" class='button' *ngIf="userPostsData?.next" (click)='handleLoadPosts()'>Load more</button>
+	</div>
+</div>

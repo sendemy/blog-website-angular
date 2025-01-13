@@ -1,0 +1,7 @@
+<div class="create-post-container">
+	<h1>Edit a Post</h1>
+
+	<ng-container *ngIf='post'>
+		<app-post-form [formType]='"edit"' [postContent]="post" />
+	</ng-container>
+</div>

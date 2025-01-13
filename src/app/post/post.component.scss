@@ -1,0 +1,62 @@
+.post {
+  max-width: 50vw;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.1);
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+
+    .post-title {
+      margin: 0;
+      font-size: 2rem;
+      color: #007acc;
+    }
+
+    .post-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .back-button,
+    .edit-button,
+    .delete-button {
+      background: none;
+      border: 1px solid #007acc;
+      color: #007acc;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: #007acc;
+        color: #fff;
+      }
+    }
+  }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+    object-fit: cover;
+  }
+
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}

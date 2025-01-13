@@ -1,0 +1,12 @@
+<article class="blog-post" (click)="goToPost(post.id)">
+	<img [src]="post.previewImage" alt="Post Image" class="post-image" />
+	<div class='post-data'>
+		<h2 class="post-title">{{ post.title }}</h2>
+		<p [innerHTML]="htmlContent" class="post-content"></p>
+		<div class='post-footer'>
+			<p class='post-category' *ngIf='post.category'>{{ post.category.slice(0, 1).toUpperCase() +
+				post.category.slice(1) }}</p>
+			<p class='post-creator-id'><a [routerLink]="['/users', post.creatorId]">{{ creator?.nickname }}</a></p>
+		</div>
+	</div>
+</article>

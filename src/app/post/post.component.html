@@ -1,0 +1,13 @@
+<div class="post">
+	<div class="post-header">
+		<h1 class="post-title">{{ post?.title }}</h1>
+		<div class='post-buttons'>
+			<button type='button' class="back-button" (click)="goBack()">← Back</button>
+			<button type='button' class="edit-button" *ngIf='isPostOwner' (click)="handlePostEdit()">Edit</button>
+			<button type='button' class="delete-button" *ngIf='isPostOwner' (click)="handlePostDelete()">Delete</button>
+		</div>
+	</div>
+	<img [src]='post?.previewImage' alt="Post Image" class="post-image" />
+	<div [innerHTML]="htmlContent" class="post-content">
+	</div>
+</div>
